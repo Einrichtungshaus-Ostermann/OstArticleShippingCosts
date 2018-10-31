@@ -1,3 +1,3 @@
-[![Build Status](https://travis-ci.org/Einrichtungshaus-Ostermann/ost-article-shipping-costs.svg?branch=master)](https://travis-ci.org/Einrichtungshaus-Ostermann/ost-article-shipping-costs)
+[![Build Status](https://travis-ci.org/Einrichtungshaus-Ostermann/OstArticleShippingCosts.svg?branch=master)](https://travis-ci.org/Einrichtungshaus-Ostermann/OstArticleShippingCosts)
 # Article Shipping Costs
 Article Shipping Costs calculator
