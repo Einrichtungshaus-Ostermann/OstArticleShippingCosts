@@ -17,7 +17,6 @@
 
 namespace OstArticleShippingCosts;
 
-use Shopware\Components\Console\Application;
 use Shopware\Components\Plugin;
 use Shopware\Components\Plugin\Context;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -39,11 +38,6 @@ class OstArticleShippingCosts extends Plugin
         parent::build($container);
     }
 
-
-    public function registerCommands(Application $application)
-    {
-        $application->add(new ShippingCostsCommand());
-    }
 
 
     /**

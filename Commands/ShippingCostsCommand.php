@@ -14,7 +14,8 @@
 
 namespace OstArticleShippingCosts\Commands;
 
-use OstArticleShippingCosts\src\Utils;
+use OstArticleShippingCosts\Services\ArticleShippingCostCalculator;
+use OstArticleShippingCosts\Services\ConfigurationServiceInterface;
 use Shopware\Commands\ShopwareCommand;
 use Shopware\Models\Article\Detail;
 use Symfony\Component\Console\Helper\ProgressBar;
@@ -24,14 +25,36 @@ use Symfony\Component\Console\Output\OutputInterface;
 class ShippingCostsCommand extends ShopwareCommand
 {
     /**
+     * @var ArticleShippingCostCalculator
+     */
+    private $articleShippingCostCalculator;
+
+
+
+    /**
+     * @var ConfigurationServiceInterface
+     */
+    private $configurationService;
+
+
+
+    public function __construct(ArticleShippingCostCalculator $articleShippingCostCalculator, ConfigurationServiceInterface $configurationService)
+    {
+        parent::__construct('sc:set');
+        $this->articleShippingCostCalculator = $articleShippingCostCalculator;
+        $this->configurationService = $configurationService;
+    }
+
+
+
+    /**
      * {@inheritdoc}
      *
      * @throws \Symfony\Component\Console\Exception\InvalidArgumentException
      */
     protected function configure()
     {
-        $this->setName('sc:set')
-            ->setDescription('Sets the Shipping Costs in Attribute21')
+        $this->setDescription('Sets the Shipping Costs in Attribute21')
             ->setHelp('The <info>%command.name%</info> sets the Shipping Costs in Attribute21 for all Articles.');
     }
 
@@ -46,8 +69,6 @@ class ShippingCostsCommand extends ShopwareCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
 
-        //$articleDetailsCount = Shopware()->Models()->getRepository(Detail::class)->createQueryBuilder('d')->select('COUNT(d)')->getQuery()->getResult()[0][1];
-
         /** @var Detail[] $articleDetails */
         $articleDetails = Shopware()->Models()->getRepository(Detail::class)->findAll();
 
@@ -59,7 +80,9 @@ class ShippingCostsCommand extends ShopwareCommand
         foreach ($articleDetails as $articleDetail) {
             $attributes = $articleDetail->getAttribute();
 
-            $attributes->setSwagAttr21(Utils::getShippingCosts($articleDetail));
+            $attributes->fromArray([
+                $this->configurationService->get('attributeTag') => $this->articleShippingCostCalculator->getShippingCosts($articleDetail)
+            ]);
 
             Shopware()->Models()->persist($attributes);
 

@@ -58,10 +58,10 @@ class Uninstall
     /**
      * ...
      *
-     * @param Plugin           $plugin
+     * @param Plugin $plugin
      * @param UninstallContext $context
-     * @param ModelManager     $modelManager
-     * @param CrudService      $crudService
+     * @param ModelManager $modelManager
+     * @param CrudService $crudService
      */
     public function __construct(Plugin $plugin, UninstallContext $context, ModelManager $modelManager, CrudService $crudService)
     {

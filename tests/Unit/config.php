@@ -1,15 +1,15 @@
 <?php declare(strict_types=1);
 
 return array_merge($this->loadConfig($this->AppPath() . 'Configs/Default.php'), [
-    'front' => [
+    'front'          => [
         'throwExceptions'        => true,
         'disableOutputBuffering' => false,
         'showException'          => true,
     ],
-    'errorHandler' => [
+    'errorHandler'   => [
         'throwOnRecoverableError' => true,
     ],
-    'session' => [
+    'session'        => [
         'unitTestEnabled' => true,
         'name'            => 'SHOPWARESID',
         'cookie_lifetime' => 0,
@@ -18,11 +18,11 @@ return array_merge($this->loadConfig($this->AppPath() . 'Configs/Default.php'), 
         'gc_divisor'      => 100,
         'save_handler'    => 'db',
     ],
-    'mail' => [
+    'mail'           => [
         'type' => 'file',
         'path' => $this->getCacheDir(),
     ],
-    'phpSettings' => [
+    'phpSettings'    => [
         'error_reporting'    => E_ALL,
         'display_errors'     => 1,
         'date.timezone'      => 'Europe/Berlin',

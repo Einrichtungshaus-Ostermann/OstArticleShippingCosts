@@ -12,18 +12,18 @@
  * @license   proprietary
  */
 
-namespace OstArticleShippingCosts\src;
+namespace OstArticleShippingCosts\Services;
 
 use Shopware\Models\Article\Detail;
 
-class Utils
+class ArticleShippingCostCalculator
 {
     /**
      * @param Detail $articleDetails
      *
      * @return float|int|null
      */
-    public static function getShippingCosts($articleDetails)
+    public function getShippingCosts($articleDetails)
     {
         if ($articleDetails->getShippingFree() === false) {
             if ($articleDetails->getAttribute()->getAttr13() === 'G') {

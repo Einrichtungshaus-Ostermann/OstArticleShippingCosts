@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 /*
  * Shopware 5
  * Copyright (c) shopware AG.
@@ -21,6 +22,7 @@
  * trademark license. Therefore any rights, title and interest in
  * our trademarks remain entirely with us.
  */
+
 use Shopware\Models\Shop\Shop;
 
 require __DIR__ . '/../../../../../autoload.php';
@@ -46,9 +48,12 @@ class TestKernel extends \Shopware\Kernel
         $_SERVER['HTTP_HOST'] = $shop->getHost();
     }
 
+
+
     protected function getConfigPath()
     {
         return __DIR__ . '/config.php';
     }
 }
+
 TestKernel::start();

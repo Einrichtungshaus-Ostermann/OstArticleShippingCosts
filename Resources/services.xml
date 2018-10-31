@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<container xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="http://symfony.com/schema/dic/services"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services
+        http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="ost_article_shipping_costs.configuration_service"
+                 class="OstArticleShippingCosts\Services\ConfigurationService">
+            <argument type="service" id="models"/>
+            <argument type="service" id="shopware_storefront.context_service"/>
+            <argument type="service" id="shopware.plugin.cached_config_reader"/>
+            <argument type="string">OstArticleAssemblySurcharge</argument>
+        </service>
+
+        <service id="ost_article_shipping_costs.services.article_shipping_cost_calculator"
+                 class="OstArticleShippingCosts\Services\ArticleShippingCostCalculator">
+        </service>
+
+        <service class="OstArticleShippingCosts\Commands\ShippingCostsCommand">
+            <tag name="console.command"/>
+            <argument type="service" id="ost_article_shipping_costs.services.article_shipping_cost_calculator"/>
+            <argument type="service" id="ost_article_shipping_costs.configuration_service"/>
+        </service>
+    </services>
+</container>

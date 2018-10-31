@@ -38,7 +38,7 @@ class Update
     /**
      * ...
      *
-     * @param Plugin         $plugin
+     * @param Plugin $plugin
      * @param InstallContext $context
      */
     public function __construct(Plugin $plugin, InstallContext $context)
