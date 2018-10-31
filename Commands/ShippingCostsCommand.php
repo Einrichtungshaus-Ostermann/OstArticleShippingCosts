@@ -15,7 +15,6 @@
 namespace OstArticleShippingCosts\Commands;
 
 use OstArticleShippingCosts\Services\ArticleShippingCostCalculator;
-use OstArticleShippingCosts\Services\ConfigurationServiceInterface;
 use Shopware\Commands\ShopwareCommand;
 use Shopware\Models\Article\Detail;
 use Symfony\Component\Console\Helper\ProgressBar;
@@ -32,17 +31,17 @@ class ShippingCostsCommand extends ShopwareCommand
 
 
     /**
-     * @var ConfigurationServiceInterface
+     * @var array
      */
-    private $configurationService;
+    private $configuration;
 
 
 
-    public function __construct(ArticleShippingCostCalculator $articleShippingCostCalculator, ConfigurationServiceInterface $configurationService)
+    public function __construct(ArticleShippingCostCalculator $articleShippingCostCalculator, array $configuration)
     {
         parent::__construct('sc:set');
         $this->articleShippingCostCalculator = $articleShippingCostCalculator;
-        $this->configurationService = $configurationService;
+        $this->configuration = $configuration;
     }
 
 
@@ -68,28 +67,35 @@ class ShippingCostsCommand extends ShopwareCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $query = "
+            SELECT id
+            FROM s_articles_details
+            ORDER BY ordernumber ASC
+        ";
+        $ids = Shopware()->Db()->fetchAll( $query );
 
-        /** @var Detail[] $articleDetails */
-        $articleDetails = Shopware()->Models()->getRepository(Detail::class)->findAll();
-
-        $total = count($articleDetails);
+        $total = count($ids);
 
         $progressBar = new ProgressBar($output, $total);
         $progressBar->start();
 
-        foreach ($articleDetails as $articleDetail) {
+        foreach ($ids as $arr) {
+
+            $id = $arr['id'];
+
+            /** @var Detail $articleDetail */
+            $articleDetail = Shopware()->Models()->find(Detail::class,$id);
+
             $attributes = $articleDetail->getAttribute();
 
             $attributes->fromArray([
-                $this->configurationService->get('attributeTag') => $this->articleShippingCostCalculator->getShippingCosts($articleDetail)
+                $this->configuration['attributeTag'] => $this->articleShippingCostCalculator->getShippingCosts($articleDetail)
             ]);
 
-            Shopware()->Models()->persist($attributes);
+            Shopware()->Models()->flush($attributes);
 
             $progressBar->advance();
         }
-
-        Shopware()->Models()->flush();
 
         $progressBar->finish();
         $output->writeln('');

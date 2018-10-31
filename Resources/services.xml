@@ -10,7 +10,12 @@
             <argument type="service" id="models"/>
             <argument type="service" id="shopware_storefront.context_service"/>
             <argument type="service" id="shopware.plugin.cached_config_reader"/>
-            <argument type="string">OstArticleAssemblySurcharge</argument>
+            <argument type="string">OstArticleShippingCosts</argument>
+        </service>
+
+        <service id="ost_article_shipping_costs.configuration" class="Shopware\Components\Plugin\CachedConfigReader">
+            <factory service="shopware.plugin.cached_config_reader" method="getByPluginName"/>
+            <argument type="string">OstArticleShippingCosts</argument>
         </service>
 
         <service id="ost_article_shipping_costs.services.article_shipping_cost_calculator"
@@ -20,7 +25,7 @@
         <service class="OstArticleShippingCosts\Commands\ShippingCostsCommand">
             <tag name="console.command"/>
             <argument type="service" id="ost_article_shipping_costs.services.article_shipping_cost_calculator"/>
-            <argument type="service" id="ost_article_shipping_costs.configuration_service"/>
+            <argument type="service" id="ost_article_shipping_costs.configuration"/>
         </service>
     </services>
 </container>
