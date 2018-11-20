@@ -24,8 +24,6 @@ class Update
      */
     protected $plugin;
 
-
-
     /**
      * ...
      *
@@ -33,12 +31,10 @@ class Update
      */
     protected $context;
 
-
-
     /**
      * ...
      *
-     * @param Plugin $plugin
+     * @param Plugin         $plugin
      * @param InstallContext $context
      */
     public function __construct(Plugin $plugin, InstallContext $context)
@@ -48,8 +44,6 @@ class Update
         $this->context = $context;
     }
 
-
-
     /**
      * ...
      */
@@ -58,8 +52,6 @@ class Update
         // install updates
         $this->update('0.0.0');
     }
-
-
 
     /**
      * ...

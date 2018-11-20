@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - Article Shipping Costs
  *
@@ -27,15 +28,13 @@ class ConfigurationService implements ConfigurationServiceInterface
      */
     protected $configuration;
 
-
-
     /**
      * ...
      *
-     * @param ModelManager $modelManager
+     * @param ModelManager            $modelManager
      * @param ContextServiceInterface $contextService
-     * @param CachedConfigReader $cachedConfigReader
-     * @param string $pluginName
+     * @param CachedConfigReader      $cachedConfigReader
+     * @param string                  $pluginName
      *
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
@@ -52,8 +51,6 @@ class ConfigurationService implements ConfigurationServiceInterface
             )
         );
     }
-
-
 
     public function get($key = null)
     {

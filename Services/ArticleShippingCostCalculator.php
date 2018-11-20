@@ -16,7 +16,7 @@ namespace OstArticleShippingCosts\Services;
 
 use Shopware\Models\Article\Detail;
 
-class ArticleShippingCostCalculator
+class ArticleShippingCostCalculator implements ArticleShippingCostCalculatorInterface
 {
     /**
      * @param Detail $articleDetails

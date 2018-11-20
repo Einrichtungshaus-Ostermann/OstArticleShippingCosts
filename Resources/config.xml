@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="../../../../engine/Shopware/Components/Plugin/schema/config.xsd">
-
     <elements>
+
+        <element type="button">
+            <name>defaultButton</name>
+            <label><![CDATA[<b>Allgemeine Einstellungen</b>]]></label>
+        </element>
+
         <element type="text">
             <name>attributeTag</name>
-            <label>Attribut Feld</label>
+            <label>Attribut</label>
             <value>attr8</value>
+            <description>In welches Attribut sollen die Versandkosten gespeichert werden?</description>
         </element>
-    </elements>
 
+    </elements>
 </config>

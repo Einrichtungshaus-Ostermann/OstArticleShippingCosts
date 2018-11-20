@@ -26,16 +26,12 @@ class Install
      */
     protected $plugin;
 
-
-
     /**
      * ...
      *
      * @var InstallContext
      */
     protected $context;
-
-
 
     /**
      * ...
@@ -44,8 +40,6 @@ class Install
      */
     protected $modelManager;
 
-
-
     /**
      * ...
      *
@@ -53,15 +47,13 @@ class Install
      */
     protected $crudService;
 
-
-
     /**
      * ...
      *
-     * @param Plugin $plugin
+     * @param Plugin         $plugin
      * @param InstallContext $context
-     * @param ModelManager $modelManager
-     * @param CrudService $crudService
+     * @param ModelManager   $modelManager
+     * @param CrudService    $crudService
      */
     public function __construct(Plugin $plugin, InstallContext $context, ModelManager $modelManager, CrudService $crudService)
     {
@@ -71,8 +63,6 @@ class Install
         $this->modelManager = $modelManager;
         $this->crudService = $crudService;
     }
-
-
 
     /**
      * ...

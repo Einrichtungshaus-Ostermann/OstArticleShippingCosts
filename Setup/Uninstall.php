@@ -26,16 +26,12 @@ class Uninstall
      */
     protected $plugin;
 
-
-
     /**
      * ...
      *
      * @var UninstallContext
      */
     protected $context;
-
-
 
     /**
      * ...
@@ -44,8 +40,6 @@ class Uninstall
      */
     protected $modelManager;
 
-
-
     /**
      * ...
      *
@@ -53,15 +47,13 @@ class Uninstall
      */
     protected $crudService;
 
-
-
     /**
      * ...
      *
-     * @param Plugin $plugin
+     * @param Plugin           $plugin
      * @param UninstallContext $context
-     * @param ModelManager $modelManager
-     * @param CrudService $crudService
+     * @param ModelManager     $modelManager
+     * @param CrudService      $crudService
      */
     public function __construct(Plugin $plugin, UninstallContext $context, ModelManager $modelManager, CrudService $crudService)
     {
@@ -71,8 +63,6 @@ class Uninstall
         $this->modelManager = $modelManager;
         $this->crudService = $crudService;
     }
-
-
 
     /**
      * ...

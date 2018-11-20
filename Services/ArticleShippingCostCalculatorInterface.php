@@ -14,14 +14,14 @@
 
 namespace OstArticleShippingCosts\Services;
 
-interface ConfigurationServiceInterface
+use Shopware\Models\Article\Detail;
+
+interface ArticleShippingCostCalculatorInterface
 {
     /**
-     * ...
+     * @param Detail $articleDetails
      *
-     * @param string|null $key
-     *
-     * @return mixed
+     * @return float|int|null
      */
-    public function get($key = null);
+    public function getShippingCosts($articleDetails);
 }

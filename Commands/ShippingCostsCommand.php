@@ -28,23 +28,21 @@ class ShippingCostsCommand extends ShopwareCommand
      */
     private $articleShippingCostCalculator;
 
-
-
     /**
      * @var array
      */
     private $configuration;
 
-
-
+    /**
+     * @param ArticleShippingCostCalculator $articleShippingCostCalculator
+     * @param array                         $configuration
+     */
     public function __construct(ArticleShippingCostCalculator $articleShippingCostCalculator, array $configuration)
     {
         parent::__construct('sc:set');
         $this->articleShippingCostCalculator = $articleShippingCostCalculator;
         $this->configuration = $configuration;
     }
-
-
 
     /**
      * {@inheritdoc}
@@ -53,26 +51,28 @@ class ShippingCostsCommand extends ShopwareCommand
      */
     protected function configure()
     {
-        $this->setDescription('Sets the Shipping Costs in Attribute21')
-            ->setHelp('The <info>%command.name%</info> sets the Shipping Costs in Attribute21 for all Articles.');
+        $this->setDescription('Sets the Shipping Costs in Attribute')
+            ->setHelp('The <info>%command.name%</info> sets the Shipping Costs in Attribute for all Articles.');
     }
-
-
 
     /**
      * {@inheritdoc}
      *
-     * @throws \Doctrine\ORM\ORMInvalidArgumentException
+     * @param InputInterface  $input
+     * @param OutputInterface $output
+     *
+     * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
+     * @throws \Doctrine\ORM\TransactionRequiredException
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $query = "
+        $query = '
             SELECT id
             FROM s_articles_details
             ORDER BY ordernumber ASC
-        ";
-        $ids = Shopware()->Db()->fetchAll( $query );
+        ';
+        $ids = Shopware()->Db()->fetchAll($query);
 
         $total = count($ids);
 
@@ -80,17 +80,17 @@ class ShippingCostsCommand extends ShopwareCommand
         $progressBar->start();
 
         foreach ($ids as $arr) {
-
             $id = $arr['id'];
 
             /** @var Detail $articleDetail */
-            $articleDetail = Shopware()->Models()->find(Detail::class,$id);
+            $articleDetail = Shopware()->Models()->find(Detail::class, $id);
 
             $attributes = $articleDetail->getAttribute();
 
             $attributes->fromArray([
                 $this->configuration['attributeTag'] => $this->articleShippingCostCalculator->getShippingCosts($articleDetail)
-            ]);
+            ]
+            );
 
             Shopware()->Models()->flush($attributes);
 

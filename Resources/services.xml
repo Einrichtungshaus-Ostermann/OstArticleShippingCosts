@@ -3,8 +3,8 @@
            xmlns="http://symfony.com/schema/dic/services"
            xsi:schemaLocation="http://symfony.com/schema/dic/services
         http://symfony.com/schema/dic/services/services-1.0.xsd">
-
     <services>
+
         <service id="ost_article_shipping_costs.configuration_service"
                  class="OstArticleShippingCosts\Services\ConfigurationService">
             <argument type="service" id="models"/>
@@ -27,5 +27,6 @@
             <argument type="service" id="ost_article_shipping_costs.services.article_shipping_cost_calculator"/>
             <argument type="service" id="ost_article_shipping_costs.configuration"/>
         </service>
+
     </services>
 </container>
