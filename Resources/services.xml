@@ -20,6 +20,7 @@
 
         <service id="ost_article_shipping_costs.services.article_shipping_cost_calculator"
                  class="OstArticleShippingCosts\Services\ArticleShippingCostCalculator">
+            <argument type="service" id="ost_article_shipping_costs.configuration"/>
         </service>
 
         <service class="OstArticleShippingCosts\Commands\ShippingCostsCommand">

@@ -88,7 +88,7 @@ class ShippingCostsCommand extends ShopwareCommand
             $attributes = $articleDetail->getAttribute();
 
             $attributes->fromArray([
-                $this->configuration['attributeTag'] => $this->articleShippingCostCalculator->getShippingCosts($articleDetail)
+                $this->configuration['attributeShippingCosts'] => $this->articleShippingCostCalculator->getShippingCosts($articleDetail)
             ]
             );
 

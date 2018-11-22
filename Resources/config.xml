@@ -4,15 +4,135 @@
     <elements>
 
         <element type="button">
-            <name>defaultButton</name>
-            <label><![CDATA[<b>Allgemeine Einstellungen</b>]]></label>
+            <name>shippingPButton</name>
+            <label><![CDATA[<b>Versandkosten - Versandart P</b>]]></label>
         </element>
 
         <element type="text">
-            <name>attributeTag</name>
-            <label>Attribut</label>
+            <name>costsGWeight0Dimension0</name>
+            <label><![CDATA[>= 0kg / >= 0cm]]></label>
+            <value>4.5</value>
+            <description>...</description>
+        </element>
+
+        <element type="text">
+            <name>costsGWeight0Dimension120</name>
+            <label><![CDATA[>= 0kg / >= 120cm]]></label>
+            <value>9.5</value>
+            <description>...</description>
+        </element>
+
+        <element type="text">
+            <name>costsGWeight30Dimension0</name>
+            <label><![CDATA[>= 30kg / >= 0cm]]></label>
+            <value>9.5</value>
+            <description>...</description>
+        </element>
+
+        <element type="text">
+            <name>costsGWeight30Dimension120</name>
+            <label><![CDATA[>= 30kg / >= 120cm]]></label>
+            <value>19</value>
+            <description>...</description>
+        </element>
+
+        <element type="button">
+            <name>shippingGButton</name>
+            <label><![CDATA[<b>Versandkosten - Versandart G</b>]]></label>
+        </element>
+
+        <element type="text">
+            <name>costsGWeight0</name>
+            <label><![CDATA[>= 0kg]]></label>
+            <value>29</value>
+            <description>...</description>
+        </element>
+
+        <element type="text">
+            <name>costsGWeight30</name>
+            <label><![CDATA[>= 30kg]]></label>
+            <value>39</value>
+            <description>...</description>
+        </element>
+
+        <element type="text">
+            <name>costsGWeight65</name>
+            <label><![CDATA[>= 65kg]]></label>
+            <value>59</value>
+            <description>...</description>
+        </element>
+
+        <element type="button">
+            <name>freeShippingButton</name>
+            <label><![CDATA[<b>Versandkostenfreie Artikel</b>]]></label>
+        </element>
+
+        <element type="textarea">
+            <name>freeShippingHwgUwg</name>
+            <label>HWG / UWG</label>
+            <value>90-1</value>
+            <description>Bitte geben Sie hier eine Kombination aus HWG und UWG an, für die die passenden Artikel versandkostenfrei angeboten werden? Bitte eine Kombination pro Zeile. Beispiel: 90-0, 90-3, 90-x</description>
+        </element>
+
+        <element type="textarea">
+            <name>freeShippingSupplier</name>
+            <label>Hersteller</label>
+            <value>joop</value>
+            <description>Bitte geben Sie hier die Namen der Hersteller an, für die die passenden Artikel versandkostenfrei angeboten werden? Groß- und Kleinschreibung wird ignoriert. Bitte ein Hersteller pro Zeile. Beispiel: joop, mondo, hülste</description>
+        </element>
+
+        <element type="boolean">
+            <name>freeShippingSupplierFullTextSearch</name>
+            <label>Hersteller Volltextsuche</label>
+            <value>true</value>
+            <description>Wenn diese Option deaktiviert ist, dann muss der angegebene Hersteller mit dem Namen des Herstellers übereinstimmen. Ansonsten gilt z.B. eine Angabe von "oop" auch für den Hersteller "Joop!"</description>
+        </element>
+
+        <element type="button">
+            <name>attributeButton</name>
+            <label><![CDATA[<b>Attribute</b>]]></label>
+        </element>
+
+        <element type="text">
+            <name>attributeShippingCosts</name>
+            <label>Versandkosten</label>
             <value>attr8</value>
-            <description>In welches Attribut sollen die Versandkosten gespeichert werden?</description>
+            <description>In welches Attribut sollen die Versandkosten für den Shop gespeichert werden?</description>
+        </element>
+
+        <element type="text">
+            <name>attributeIwmHwg</name>
+            <label>IWM HWG</label>
+            <value>attr2</value>
+            <description>In welchem Attribut steht die HWG des Artikels?</description>
+        </element>
+
+        <element type="text">
+            <name>attributeIwmUwg</name>
+            <label>IWM UWG</label>
+            <value>attr3</value>
+            <description>In welchem Attribut steht die UWG des Artikels?</description>
+        </element>
+
+        <element type="text">
+            <name>attributeIwmShippingCosts</name>
+            <label>IWM Versandkosten</label>
+            <value>attr15</value>
+            <description>In welchem Attribut stehen die Versandkosten des Artikels?</description>
+        </element>
+
+        <element type="text">
+            <name>attributeIwmFullService</name>
+            <label>IWM Versandkosten</label>
+            <value>attr18</value>
+            <description>In welchem Attribut steht der Vollservicepreis ("2") des Artikels?</description>
+        </element>
+
+        <element type="text">
+            <name>attributeIwmShippingType</name>
+            <label>IWM Versandart</label>
+            <value>attr13</value>
+            <description>In welchem Attribut steht die Versandart ("P", "G") des Artikels?</description>
         </element>
 
     </elements>
