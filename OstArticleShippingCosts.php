@@ -8,6 +8,9 @@
  * 1.0.0
  * - initial release
  *
+ * 1.0.1
+ * - fixed faulty configuration
+ *
  * @package   OstArticleShippingCosts
  *
  * @author    Tim Windelschmidt <tim.windelschmidt@ostermann.de>

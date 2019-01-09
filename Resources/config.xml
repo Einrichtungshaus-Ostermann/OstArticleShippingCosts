@@ -123,9 +123,9 @@
 
         <element type="text">
             <name>attributeIwmFullService</name>
-            <label>IWM Versandkosten</label>
+            <label>IWM Etikettenart</label>
             <value>attr18</value>
-            <description>In welchem Attribut steht der Vollservicepreis ("2") des Artikels?</description>
+            <description>In welchem Attribut steht die Etikettenart (2 = Vollservicepreis) des Artikels?</description>
         </element>
 
         <element type="text">
