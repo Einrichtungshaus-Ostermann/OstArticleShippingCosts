@@ -36,8 +36,7 @@ class ArticleShippingCostCalculator implements ArticleShippingCostCalculatorInte
                 120 => null,
                 0 => null
             )
-        ),
-        'default' => 4.5
+        )
     );
 
     /**
