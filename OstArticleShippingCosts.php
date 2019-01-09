@@ -10,6 +10,7 @@
  *
  * 1.0.1
  * - fixed faulty configuration
+ * - fixed plugin name
  *
  * @package   OstArticleShippingCosts
  *
