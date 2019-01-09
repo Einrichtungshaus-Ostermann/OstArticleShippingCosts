@@ -39,7 +39,7 @@ class ShippingCostsCommand extends ShopwareCommand
      */
     public function __construct(ArticleShippingCostCalculator $articleShippingCostCalculator, array $configuration)
     {
-        parent::__construct('sc:set');
+        parent::__construct('ost-article-shipping-costs:calculate');
         $this->articleShippingCostCalculator = $articleShippingCostCalculator;
         $this->configuration = $configuration;
     }
@@ -51,7 +51,7 @@ class ShippingCostsCommand extends ShopwareCommand
      */
     protected function configure()
     {
-        $this->setDescription('Sets the Shipping Costs in Attribute')
+        $this->setDescription('Sets the shipping costs in attribute')
             ->setHelp('The <info>%command.name%</info> sets the Shipping Costs in Attribute for all Articles.');
     }
 

@@ -11,6 +11,7 @@
  * 1.0.1
  * - fixed faulty configuration
  * - fixed plugin name
+ * - changed console command to ost-article-shipping-costs:calculate
  *
  * @package   OstArticleShippingCosts
  *
