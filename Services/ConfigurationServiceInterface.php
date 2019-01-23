@@ -3,8 +3,6 @@
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - Article Shipping Costs
  *
- * Article Shipping Costs calculator
- *
  * @package   OstArticleShippingCosts
  *
  * @author    Tim Windelschmidt <tim.windelschmidt@ostermann.de>

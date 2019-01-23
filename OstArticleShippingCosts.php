@@ -3,7 +3,9 @@
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - Article Shipping Costs
  *
- * Article Shipping Costs calculator
+ * Calculates the shipping costs for every article considerung optional assembly
+ * surcharge, given shipping costs from the erp and the configuration for
+ * free shipping.
  *
  * 1.0.0
  * - initial release
@@ -15,6 +17,9 @@
  *
  * 1.0.2
  * - added negative hwg-uwg configuration
+ *
+ * 1.0.3
+ * - code beautify
  *
  * @package   OstArticleShippingCosts
  *
