@@ -71,7 +71,7 @@
             <name>freeShippingHwgUwg</name>
             <label>HWG / UWG</label>
             <value>90-1</value>
-            <description>Bitte geben Sie hier eine Kombination aus HWG und UWG an, für die die passenden Artikel versandkostenfrei angeboten werden? Bitte eine Kombination pro Zeile. Beispiel: 90-0, 90-3, 90-x</description>
+            <description>Bitte geben Sie hier eine Kombination aus HWG und UWG an, für die die passenden Artikel versandkostenfrei angeboten werden? Bitte eine Kombination pro Zeile. Die Angabe einer UWG ist optional. Sollte eine komplette HWG als versandkostenfrei definiert sein, dann können einzelne UWGs negiert werden. Beispiele: 80-20, 85-10, 90, !90-10</description>
         </element>
 
         <element type="textarea">

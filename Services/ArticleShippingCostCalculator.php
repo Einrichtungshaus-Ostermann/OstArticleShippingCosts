@@ -184,24 +184,65 @@ class ArticleShippingCostCalculator implements ArticleShippingCostCalculatorInte
             // split and set it
             $split = explode( "-", $hwgUwg );
             $hwg = (string) $split[0];
-            $uwg = (string) $split[1];
+            $uwg = (string) ( isset( $split[1] ) ) ? $split[1] : "";
 
             // we definitly need same hwg
-            if ( $hwg == $attributes[$this->configuration['attributeIwmHwg']] )
-            {
+            if ( $hwg == $attributes[$this->configuration['attributeIwmHwg']] ) {
                 // no need for uwg?!
-                if ( $uwg == "x" || $uwg == "" )
-                    // free shipping
-                    return true;
+                if ( $uwg == "x" || $uwg == "" ) {
+                    // check for negative hwg
+                    if ( $this->checkNegativeHwg($attributes[$this->configuration['attributeIwmHwg']], $attributes[$this->configuration['attributeIwmUwg']]) == true )
+                        // free shipping
+                        return true;
+                }
 
                 // same uwg?!
-                if ( $uwg == $attributes[$this->configuration['attributeIwmUwg']] )
-                    // free shipping
-                    return true;
+                if ( $uwg == $attributes[$this->configuration['attributeIwmUwg']] ) {
+                    // check for negative hwg
+                    if ( $this->checkNegativeHwg($attributes[$this->configuration['attributeIwmHwg']], $attributes[$this->configuration['attributeIwmUwg']]) == true )
+                        // free shipping
+                        return true;
+                }
             }
         }
 
         // nothing matched...
         return false;
+    }
+
+    /**
+     * ...
+     *
+     * @param string $articleHwg
+     * @param string $articleUwg
+     *
+     * @return boolean
+     */
+    private function checkNegativeHwg(string $articleHwg, string $articleUwg)
+    {
+        // loop every hwg-uwg
+        foreach ( $this->freeShipping['hwg-uwg'] as $hwgUwg )
+        {
+            // split and set it
+            $split = explode( "-", $hwgUwg );
+            $hwg = (string) $split[0];
+            $uwg = (string) ( isset( $split[1] ) ) ? $split[1] : "";
+
+            // only negative
+            if ( substr( $hwg, 0, 1 ) != "!" )
+                // next
+                continue;
+
+            // remove negative char
+            $hwg = str_replace( "!", "", $hwg );
+
+            // is this exactly the same?
+            if ($articleHwg == $hwg && $articleUwg == $uwg)
+                // well... this one is denied
+                return false;
+        }
+
+        // is it not in any negative clause
+        return true;
     }
 }

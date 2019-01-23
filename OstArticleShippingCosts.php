@@ -13,6 +13,9 @@
  * - fixed plugin name
  * - changed console command to ost-article-shipping-costs:calculate
  *
+ * 1.0.2
+ * - added negative hwg-uwg configuration
+ *
  * @package   OstArticleShippingCosts
  *
  * @author    Tim Windelschmidt <tim.windelschmidt@ostermann.de>
