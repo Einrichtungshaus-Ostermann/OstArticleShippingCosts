@@ -4,85 +4,344 @@
     <elements>
 
         <element type="button">
-            <name>shippingPButton</name>
-            <label><![CDATA[<b>Versandkosten - Versandart P</b>]]></label>
+            <name>ostermannShippingPButton</name>
+            <label><![CDATA[<b>OSTERMANN - Versandkosten - Versandart P</b>]]></label>
         </element>
 
         <element type="text">
-            <name>costsGWeight0Dimension0</name>
+            <name>ostermannCostsPWeight0Dimension0</name>
             <label><![CDATA[>= 0kg / >= 0cm]]></label>
             <value>4.5</value>
             <description>...</description>
         </element>
 
         <element type="text">
-            <name>costsGWeight0Dimension120</name>
+            <name>ostermannCostsPWeight0Dimension120</name>
             <label><![CDATA[>= 0kg / >= 120cm]]></label>
             <value>9.5</value>
             <description>...</description>
         </element>
 
         <element type="text">
-            <name>costsGWeight30Dimension0</name>
+            <name>ostermannCostsPWeight30Dimension0</name>
             <label><![CDATA[>= 30kg / >= 0cm]]></label>
             <value>9.5</value>
             <description>...</description>
         </element>
 
         <element type="text">
-            <name>costsGWeight30Dimension120</name>
+            <name>ostermannCostsPWeight30Dimension120</name>
             <label><![CDATA[>= 30kg / >= 120cm]]></label>
             <value>19</value>
             <description>...</description>
         </element>
 
         <element type="button">
-            <name>shippingGButton</name>
-            <label><![CDATA[<b>Versandkosten - Versandart G</b>]]></label>
+            <name>ostermannShippingGButton</name>
+            <label><![CDATA[<b>OSTERMANN - Versandkosten - Versandart G</b>]]></label>
         </element>
 
         <element type="text">
-            <name>costsGWeight0</name>
+            <name>ostermannCostsGWeight0</name>
             <label><![CDATA[>= 0kg]]></label>
             <value>29</value>
             <description>...</description>
         </element>
 
         <element type="text">
-            <name>costsGWeight30</name>
+            <name>ostermannCostsGWeight30</name>
             <label><![CDATA[>= 30kg]]></label>
             <value>39</value>
             <description>...</description>
         </element>
 
         <element type="text">
-            <name>costsGWeight65</name>
+            <name>ostermannCostsGWeight65</name>
             <label><![CDATA[>= 65kg]]></label>
             <value>59</value>
             <description>...</description>
         </element>
 
         <element type="button">
-            <name>freeShippingButton</name>
-            <label><![CDATA[<b>Versandkostenfreie Artikel</b>]]></label>
+            <name>ostermannFreeShippingButton</name>
+            <label><![CDATA[<b>OSTERMANN - Versandkostenfreie Artikel</b>]]></label>
         </element>
 
         <element type="textarea">
-            <name>freeShippingHwgUwg</name>
+            <name>ostermannFreeShippingHwgUwg</name>
             <label>HWG / UWG</label>
             <value>90-1</value>
             <description>Bitte geben Sie hier eine Kombination aus HWG und UWG an, für die die passenden Artikel versandkostenfrei angeboten werden? Bitte eine Kombination pro Zeile. Die Angabe einer UWG ist optional. Sollte eine komplette HWG als versandkostenfrei definiert sein, dann können einzelne UWGs negiert werden. Beispiele: 80-20, 85-10, 90, !90-10</description>
         </element>
 
         <element type="textarea">
-            <name>freeShippingSupplier</name>
+            <name>ostermannFreeShippingSupplier</name>
             <label>Hersteller</label>
             <value>joop</value>
             <description>Bitte geben Sie hier die Namen der Hersteller an, für die die passenden Artikel versandkostenfrei angeboten werden? Groß- und Kleinschreibung wird ignoriert. Bitte ein Hersteller pro Zeile. Beispiel: joop, mondo, hülste</description>
         </element>
 
         <element type="boolean">
-            <name>freeShippingSupplierFullTextSearch</name>
+            <name>ostermannFreeShippingSupplierFullTextSearch</name>
+            <label>Hersteller Volltextsuche</label>
+            <value>true</value>
+            <description>Wenn diese Option deaktiviert ist, dann muss der angegebene Hersteller mit dem Namen des Herstellers übereinstimmen. Ansonsten gilt z.B. eine Angabe von "oop" auch für den Hersteller "Joop!"</description>
+        </element>
+
+        <element type="button">
+            <name>trendsShippingPButton</name>
+            <label><![CDATA[<b>TRENDS - Versandkosten - Versandart P</b>]]></label>
+        </element>
+
+        <element type="text">
+            <name>trendsCostsPWeight0Dimension0</name>
+            <label><![CDATA[>= 0kg / >= 0cm]]></label>
+            <value>4.5</value>
+            <description>...</description>
+        </element>
+
+        <element type="text">
+            <name>trendsCostsPWeight0Dimension120</name>
+            <label><![CDATA[>= 0kg / >= 120cm]]></label>
+            <value>9.5</value>
+            <description>...</description>
+        </element>
+
+        <element type="text">
+            <name>trendsCostsPWeight30Dimension0</name>
+            <label><![CDATA[>= 30kg / >= 0cm]]></label>
+            <value>9.5</value>
+            <description>...</description>
+        </element>
+
+        <element type="text">
+            <name>trendsCostsPWeight30Dimension120</name>
+            <label><![CDATA[>= 30kg / >= 120cm]]></label>
+            <value>19</value>
+            <description>...</description>
+        </element>
+
+        <element type="button">
+            <name>trendsCostsGEchelon1Button</name>
+            <label><![CDATA[<b>TRENDS - Versandkosten - Versandart G - Staffel I</b>]]></label>
+        </element>
+
+        <element type="text">
+            <name>trendsCostsGEchelon1Price</name>
+            <label>Versandkosten</label>
+            <value>79</value>
+            <description>Die Versandkosten der Artikel, die in diese Staffel fallen.</description>
+        </element>
+
+        <element type="textarea">
+            <name>trendsCostsGEchelon1HwgUwg</name>
+            <label>HWG / UWG</label>
+            <value>90-1</value>
+            <description>Bitte geben Sie hier eine Kombination aus HWG und UWG für Artikel dieser Staffel an. Bitte eine Kombination pro Zeile. Die Angabe einer UWG ist optional. Sollte eine komplette HWG definiert sein, dann können einzelne UWGs negiert werden. Beispiele: 80-20, 85-10, 90, !90-10</description>
+        </element>
+
+        <element type="textarea">
+            <name>trendsCostsGEchelon1Supplier</name>
+            <label>Hersteller</label>
+            <value>joop</value>
+            <description>Bitte geben Sie hier die Namen der Hersteller für Artikel dieser Staffel an. Groß- und Kleinschreibung wird ignoriert. Bitte ein Hersteller pro Zeile. Beispiel: joop, mondo, hülsta</description>
+        </element>
+
+        <element type="textarea">
+            <name>trendsCostsGEchelon1Numbers</name>
+            <label>Artikelnummern</label>
+            <value>abcdef</value>
+            <description>Bitte geben Sie hier spezifische Artikelnummern für Artikel dieser Staffel an. Bitte eine Artikelnummer pro Zeile.</description>
+        </element>
+
+        <element type="textarea">
+            <name>trendsCostsGEchelon1Names</name>
+            <label>Artikelnamen</label>
+            <value>babyzimmer</value>
+            <description>Bitte geben Sie hier Suchbegriffe für Artikelnamen dieser Staffel an. Bitte ein Suchbegriff pro Zeile. Beispiel: der Suchbegriff "baby" findet "Babyzimmer" und "Autobabyschale".</description>
+        </element>
+
+        <element type="button">
+            <name>trendsCostsGEchelon2Button</name>
+            <label><![CDATA[<b>TRENDS - Versandkosten - Versandart G - Staffel II</b>]]></label>
+        </element>
+
+        <element type="text">
+            <name>trendsCostsGEchelon2Price</name>
+            <label>Versandkosten</label>
+            <value>59</value>
+            <description>...</description>
+        </element>
+
+        <element type="textarea">
+            <name>trendsCostsGEchelon2HwgUwg</name>
+            <label>HWG / UWG</label>
+            <value></value>
+            <description>...</description>
+        </element>
+
+        <element type="textarea">
+            <name>trendsCostsGEchelon2Supplier</name>
+            <label>Hersteller</label>
+            <value></value>
+            <description>...</description>
+        </element>
+
+        <element type="textarea">
+            <name>trendsCostsGEchelon2Numbers</name>
+            <label>Artikelnummern</label>
+            <value></value>
+            <description>...</description>
+        </element>
+
+        <element type="textarea">
+            <name>trendsCostsGEchelon2Names</name>
+            <label>Artikelnamen</label>
+            <value></value>
+            <description>...</description>
+        </element>
+
+        <element type="button">
+            <name>trendsCostsGEchelon3Button</name>
+            <label><![CDATA[<b>TRENDS - Versandkosten - Versandart G - Staffel III</b>]]></label>
+        </element>
+
+        <element type="text">
+            <name>trendsCostsGEchelon3Price</name>
+            <label>Versandkosten</label>
+            <value>39</value>
+            <description>...</description>
+        </element>
+
+        <element type="textarea">
+            <name>trendsCostsGEchelon3HwgUwg</name>
+            <label>HWG / UWG</label>
+            <value></value>
+            <description>...</description>
+        </element>
+
+        <element type="textarea">
+            <name>trendsCostsGEchelon3Supplier</name>
+            <label>Hersteller</label>
+            <value></value>
+            <description>...</description>
+        </element>
+
+        <element type="textarea">
+            <name>trendsCostsGEchelon3Numbers</name>
+            <label>Artikelnummern</label>
+            <value></value>
+            <description>...</description>
+        </element>
+
+        <element type="textarea">
+            <name>trendsCostsGEchelon3Names</name>
+            <label>Artikelnamen</label>
+            <value></value>
+            <description>...</description>
+        </element>
+
+        <element type="button">
+            <name>trendsCostsGEchelon4Button</name>
+            <label><![CDATA[<b>TRENDS - Versandkosten - Versandart G - Staffel IV</b>]]></label>
+        </element>
+
+        <element type="text">
+            <name>trendsCostsGEchelon4Price</name>
+            <label>Versandkosten</label>
+            <value>29</value>
+            <description>...</description>
+        </element>
+
+        <element type="textarea">
+            <name>trendsCostsGEchelon4HwgUwg</name>
+            <label>HWG / UWG</label>
+            <value></value>
+            <description>...</description>
+        </element>
+
+        <element type="textarea">
+            <name>trendsCostsGEchelon4Supplier</name>
+            <label>Hersteller</label>
+            <value></value>
+            <description>...</description>
+        </element>
+
+        <element type="textarea">
+            <name>trendsCostsGEchelon4Numbers</name>
+            <label>Artikelnummern</label>
+            <value></value>
+            <description>...</description>
+        </element>
+
+        <element type="textarea">
+            <name>trendsCostsGEchelon4Names</name>
+            <label>Artikelnamen</label>
+            <value></value>
+            <description>...</description>
+        </element>
+
+        <element type="button">
+            <name>trendsCostsGEchelon5Button</name>
+            <label><![CDATA[<b>TRENDS - Versandkosten - Versandart G - Staffel V</b>]]></label>
+        </element>
+
+        <element type="text">
+            <name>trendsCostsGEchelon5Price</name>
+            <label>Versandkosten</label>
+            <value></value>
+            <description>...</description>
+        </element>
+
+        <element type="textarea">
+            <name>trendsCostsGEchelon5HwgUwg</name>
+            <label>HWG / UWG</label>
+            <value></value>
+            <description>...</description>
+        </element>
+
+        <element type="textarea">
+            <name>trendsCostsGEchelon5Supplier</name>
+            <label>Hersteller</label>
+            <value></value>
+            <description>...</description>
+        </element>
+
+        <element type="textarea">
+            <name>trendsCostsGEchelon5Numbers</name>
+            <label>Artikelnummern</label>
+            <value></value>
+            <description>...</description>
+        </element>
+
+        <element type="textarea">
+            <name>trendsCostsGEchelon5Names</name>
+            <label>Artikelnamen</label>
+            <value></value>
+            <description>...</description>
+        </element>
+
+        <element type="button">
+            <name>trendsFreeShippingButton</name>
+            <label><![CDATA[<b>TRENDS - Versandkostenfreie Artikel</b>]]></label>
+        </element>
+
+        <element type="textarea">
+            <name>trendsFreeShippingHwgUwg</name>
+            <label>HWG / UWG</label>
+            <value>90-1</value>
+            <description>Bitte geben Sie hier eine Kombination aus HWG und UWG an, für die die passenden Artikel versandkostenfrei angeboten werden? Bitte eine Kombination pro Zeile. Die Angabe einer UWG ist optional. Sollte eine komplette HWG als versandkostenfrei definiert sein, dann können einzelne UWGs negiert werden. Beispiele: 80-20, 85-10, 90, !90-10</description>
+        </element>
+
+        <element type="textarea">
+            <name>trendsFreeShippingSupplier</name>
+            <label>Hersteller</label>
+            <value>joop</value>
+            <description>Bitte geben Sie hier die Namen der Hersteller an, für die die passenden Artikel versandkostenfrei angeboten werden? Groß- und Kleinschreibung wird ignoriert. Bitte ein Hersteller pro Zeile. Beispiel: joop, mondo, hülsta</description>
+        </element>
+
+        <element type="boolean">
+            <name>trendsFreeShippingSupplierFullTextSearch</name>
             <label>Hersteller Volltextsuche</label>
             <value>true</value>
             <description>Wenn diese Option deaktiviert ist, dann muss der angegebene Hersteller mit dem Namen des Herstellers übereinstimmen. Ansonsten gilt z.B. eine Angabe von "oop" auch für den Hersteller "Joop!"</description>
@@ -98,6 +357,13 @@
             <label>Versandkosten</label>
             <value>attr8</value>
             <description>In welches Attribut sollen die Versandkosten für den Shop gespeichert werden?</description>
+        </element>
+
+        <element type="text">
+            <name>attributeIwmCompany</name>
+            <label>IWM Firma</label>
+            <value>attr1</value>
+            <description>In welchem Attribut steht die Firma des Artikels?</description>
         </element>
 
         <element type="text">

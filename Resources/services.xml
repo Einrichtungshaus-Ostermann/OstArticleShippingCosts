@@ -18,14 +18,29 @@
             <argument type="string">OstArticleShippingCosts</argument>
         </service>
 
+        <service class="OstArticleShippingCosts\Commands\ShippingCostsCommand">
+            <tag name="console.command"/>
+            <argument type="service" id="ost_article_shipping_costs.services.article_shipping_cost_calculator"/>
+            <argument type="service" id="ost_article_shipping_costs.configuration"/>
+        </service>
+
         <service id="ost_article_shipping_costs.services.article_shipping_cost_calculator"
                  class="OstArticleShippingCosts\Services\ArticleShippingCostCalculator">
             <argument type="service" id="ost_article_shipping_costs.configuration"/>
         </service>
 
-        <service class="OstArticleShippingCosts\Commands\ShippingCostsCommand">
-            <tag name="console.command"/>
-            <argument type="service" id="ost_article_shipping_costs.services.article_shipping_cost_calculator"/>
+        <service id="ost_article_shipping_costs.services.article_shipping_cost_calculator.adapter.ostermann"
+                 class="OstArticleShippingCosts\Services\ArticleShippingCostAdapter\Ostermann">
+            <argument type="service" id="ost_article_shipping_costs.configuration"/>
+        </service>
+
+        <service id="ost_article_shipping_costs.services.article_shipping_cost_calculator.adapter.trends"
+                 class="OstArticleShippingCosts\Services\ArticleShippingCostAdapter\Trends">
+            <argument type="service" id="ost_article_shipping_costs.configuration"/>
+        </service>
+
+        <service id="ost_article_shipping_costs.services.article_shipping_cost_calculator.adapter.moebel_shop"
+                 class="OstArticleShippingCosts\Services\ArticleShippingCostAdapter\MoebelShop">
             <argument type="service" id="ost_article_shipping_costs.configuration"/>
         </service>
 

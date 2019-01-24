@@ -10,16 +10,17 @@
  * @license   proprietary
  */
 
-namespace OstArticleShippingCosts\Services;
+namespace OstArticleShippingCosts\Services\ArticleShippingCostAdapter;
 
 use Shopware\Models\Article\Detail;
 
-interface ArticleShippingCostCalculatorInterface
+interface AdapterInterface
 {
     /**
      * @param Detail $articleDetails
+     * @param array  $attributes
      *
      * @return float
      */
-    public function getShippingCosts(Detail $articleDetails): float;
+    public function getShippingCosts(Detail $articleDetails, array $attributes): float;
 }

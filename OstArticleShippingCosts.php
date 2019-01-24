@@ -21,6 +21,9 @@
  * 1.0.3
  * - code beautify
  *
+ * 1.1.0
+ * - added trends and moebel-shop
+ *
  * @package   OstArticleShippingCosts
  *
  * @author    Tim Windelschmidt <tim.windelschmidt@ostermann.de>

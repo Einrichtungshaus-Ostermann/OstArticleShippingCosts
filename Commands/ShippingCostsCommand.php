@@ -12,7 +12,7 @@
 
 namespace OstArticleShippingCosts\Commands;
 
-use OstArticleShippingCosts\Services\ArticleShippingCostCalculator;
+use OstArticleShippingCosts\Services\ArticleShippingCostCalculatorInterface;
 use Shopware\Commands\ShopwareCommand;
 use Shopware\Models\Article\Detail;
 use Symfony\Component\Console\Helper\ProgressBar;
@@ -22,7 +22,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 class ShippingCostsCommand extends ShopwareCommand
 {
     /**
-     * @var ArticleShippingCostCalculator
+     * @var ArticleShippingCostCalculatorInterface
      */
     private $articleShippingCostCalculator;
 
@@ -32,10 +32,10 @@ class ShippingCostsCommand extends ShopwareCommand
     private $configuration;
 
     /**
-     * @param ArticleShippingCostCalculator $articleShippingCostCalculator
-     * @param array                         $configuration
+     * @param ArticleShippingCostCalculatorInterface $articleShippingCostCalculator
+     * @param array                                  $configuration
      */
-    public function __construct(ArticleShippingCostCalculator $articleShippingCostCalculator, array $configuration)
+    public function __construct(ArticleShippingCostCalculatorInterface $articleShippingCostCalculator, array $configuration)
     {
         parent::__construct('ost-article-shipping-costs:calculate');
         $this->articleShippingCostCalculator = $articleShippingCostCalculator;
@@ -87,8 +87,7 @@ class ShippingCostsCommand extends ShopwareCommand
 
             $attributes->fromArray([
                 $this->configuration['attributeShippingCosts'] => $this->articleShippingCostCalculator->getShippingCosts($articleDetail)
-            ]
-            );
+            ]);
 
             Shopware()->Models()->flush($attributes);
 
