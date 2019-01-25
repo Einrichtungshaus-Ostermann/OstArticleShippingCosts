@@ -111,20 +111,26 @@ class Trends extends Adapter implements AdapterInterface
             return 0.0;
         }
 
-        // p is always calculated
-        if ($attributes[$this->configuration['attributeIwmShippingType']] === 'P') {
+        // hard coded stuff... by shipping type (P,G) first
+        if ($attributes[$this->configuration['attributeIwmShippingType']] === 'G') {
+            // do we have shipping costs from iwm?!
+            if ((float) $attributes[$this->configuration['attributeIwmShippingCosts']] > 0) {
+                // return those shipping costs
+                return (float) $attributes[$this->configuration['attributeIwmShippingCosts']];
+            }
+
             // ...
-            return $this->calculatePackage($articleDetails, $attributes);
+            return $this->calculateTruck($articleDetails, $attributes);
         }
 
-        // do we have shipping costs from iwm?!
-        if ((float) $attributes[$this->configuration['attributeIwmShippingCosts']] > 0) {
-            // return those shipping costs
+        // if we are inhouse we have to check for iwm shipping costs first
+        if (Shopware()->Container()->get("ost_foundation.configuration")['shop'] == "inhouse" && (float) $attributes[$this->configuration['attributeIwmShippingCosts']] > 0) {
+            // return shipping costs from iwm
             return (float) $attributes[$this->configuration['attributeIwmShippingCosts']];
         }
 
-        // return by truck calculation
-        return $this->calculateTruck($articleDetails, $attributes);
+        // return by package calculation
+        return $this->calculatePackage($articleDetails, $attributes);
     }
 
     /**

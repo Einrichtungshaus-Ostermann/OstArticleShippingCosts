@@ -24,6 +24,9 @@
  * 1.1.0
  * - added trends and moebel-shop
  *
+ * 1.1.1
+ * - added differentiation for inhouse or online shop calculation
+ *
  * @package   OstArticleShippingCosts
  *
  * @author    Tim Windelschmidt <tim.windelschmidt@ostermann.de>
