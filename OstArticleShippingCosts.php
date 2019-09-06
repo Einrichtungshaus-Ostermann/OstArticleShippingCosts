@@ -27,6 +27,9 @@
  * 1.1.1
  * - added differentiation for inhouse or online shop calculation
  *
+ * 1.1.2
+ * - fixed free shipping for hwg-uwg constellation
+ *
  * @package   OstArticleShippingCosts
  *
  * @author    Tim Windelschmidt <tim.windelschmidt@ostermann.de>

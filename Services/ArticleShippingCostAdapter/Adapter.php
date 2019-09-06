@@ -188,6 +188,12 @@ abstract class Adapter
             $matchHwg = (string) $split[0];
             $matchUwg = (string) (isset($split[1])) ? $split[1] : '';
 
+            // is this a negation?
+            if (substr($matchHwg, 0, 1) === "!") {
+                // ignore it
+                continue;
+            }
+            
             // we definitly need same hwg
             if ($matchHwg === $hwg) {
                 // no need for uwg?!
@@ -195,8 +201,11 @@ abstract class Adapter
                     // check for negative hwg
                     if ($this->checkNegativeHwg($hwg, $uwg, $input) === true) {
                         // free shipping
-                        return true;
+                        return false;
                     }
+
+                    // not negated anywwhere -> its free
+                    return true;
                 }
 
                 // same uwg?!
@@ -204,7 +213,7 @@ abstract class Adapter
                     // check for negative hwg
                     if ($this->checkNegativeHwg($hwg, $uwg, $input) === true) {
                         // free shipping
-                        return true;
+                        return false;
                     }
                 }
             }
@@ -215,7 +224,9 @@ abstract class Adapter
     }
 
     /**
-     * ...
+     * Checks if the HWG and UWG is anywhere negated within the input.
+     * Returns true if we found the HWG-UWG combination within any negation.
+     * Returns false if we havent found the HWG-UWG combination within any negation.
      *
      * @param string $articleHwg
      * @param string $articleUwg
@@ -244,11 +255,11 @@ abstract class Adapter
             // is this exactly the same?
             if ($articleHwg === $hwg && $articleUwg === $uwg) {
                 // well... this one is denied
-                return false;
+                return true;
             }
         }
 
         // is it not in any negative clause
-        return true;
+        return false;
     }
 }
