@@ -34,6 +34,10 @@
  * - changed article number as highest priority for trends truck articles
  * - changed lowest price as default for trends truck articles
  *
+ * 1.1.4
+ * - fixed free shipping articles with default shopware free-shipping flag
+ * - fixed faulty string match for article numbers and names
+ *
  * @package   OstArticleShippingCosts
  *
  * @author    Tim Windelschmidt <tim.windelschmidt@ostermann.de>

@@ -138,14 +138,14 @@ abstract class Adapter
             // do we want full text search?
             if ($fullTextSearch === true) {
                 // is our search a substring?
-                if (substr_count($str, $value) > 0) {
-                    // it is free
+                if (substr_count($value, $str) > 0) {
+                    // we found it
                     return true;
                 }
             } else {
                 // has to be exactly the same
                 if ($str === $value) {
-                    // also free
+                    // match found
                     return true;
                 }
             }

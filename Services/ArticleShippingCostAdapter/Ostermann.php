@@ -126,14 +126,25 @@ class Ostermann extends Adapter implements AdapterInterface
      */
     protected function isFreeShipping(Detail $articleDetails, array $attributes)
     {
+        // get parameters
+        $hwg = $attributes[$this->configuration['attributeIwmHwg']];
+        $uwg = $attributes[$this->configuration['attributeIwmUwg']];
+        $supplier = $articleDetails->getArticle()->getSupplier()->getName();
+
+        // shipping free by shopware flag?!
+        if ((int) $articleDetails->getShippingFree() === 1) {
+            // yep...
+            return true;
+        }
+
         // free hwg-uwg?
-        if ($this->matchHwgUwg($attributes[$this->configuration['attributeIwmHwg']], $attributes[$this->configuration['attributeIwmUwg']], $this->freeShipping['hwg-uwg'])) {
+        if ($this->matchHwgUwg($hwg, $uwg, $this->freeShipping['hwg-uwg'])) {
             // freeee
             return true;
         }
 
         // free supplier?
-        if ($this->matchSupplier($articleDetails->getArticle()->getSupplier()->getName(), $this->freeShipping['supplier'], $this->freeShipping['fullTextSearch'])) {
+        if ($this->matchSupplier($supplier, $this->freeShipping['supplier'], $this->freeShipping['fullTextSearch'])) {
             // free please
             return true;
         }

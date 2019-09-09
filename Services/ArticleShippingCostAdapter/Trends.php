@@ -148,6 +148,12 @@ class Trends extends Adapter implements AdapterInterface
         $uwg = $attributes[$this->configuration['attributeIwmUwg']];
         $supplier = $articleDetails->getArticle()->getSupplier()->getName();
 
+        // shipping free by shopware flag?!
+        if ((int) $articleDetails->getShippingFree() === 1) {
+            // yep...
+            return true;
+        }
+
         // free hwg-uwg?
         if ($this->matchHwgUwg($hwg, $uwg, $this->freeShipping['hwg-uwg'])) {
             // freeee
