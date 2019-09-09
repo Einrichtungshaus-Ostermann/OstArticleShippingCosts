@@ -179,19 +179,58 @@ class Trends extends Adapter implements AdapterInterface
         $uwg = $attributes[$this->configuration['attributeIwmUwg']];
         $supplier = $articleDetails->getArticle()->getSupplier()->getName();
 
-        // we are g and we loop every echolon
-        for ($i = 1; $i <= 5; ++$i) {
+        // we check every article number first
+        for ($i = 1; $i <= 5; $i++) {
             // get current scale
             $scale = $this->shippingCosts['G'][$i];
 
+            // ignore invalid
+            if ((float) $scale['price'] == 0) {
+                // next
+                continue;
+            }
+
             // we need at least one match
-            if ($this->matchHwgUwg($hwg, $uwg, $scale['hwg-uwg']) || $this->matchSupplier($supplier, $scale['supplier']) || $this->match($articleDetails->getNumber(), $scale['numbers']) || $this->match($articleDetails->getArticle()->getName(), $scale['names'])) {
+            if ($this->match($articleDetails->getNumber(), $scale['numbers'])) {
                 // return this price
                 return $scale['price'];
             }
         }
 
-        // default is highest price
-        return $this->shippingCosts['G'][1]['price'];
+        // we are g and we loop every echolon
+        for ($i = 1; $i <= 5; $i++) {
+            // get current scale
+            $scale = $this->shippingCosts['G'][$i];
+
+            // ignore invalid
+            if ((float) $scale['price'] == 0) {
+                // next
+                continue;
+            }
+
+            // we need at least one match
+            if ($this->matchHwgUwg($hwg, $uwg, $scale['hwg-uwg']) || $this->matchSupplier($supplier, $scale['supplier']) || $this->match($articleDetails->getArticle()->getName(), $scale['names'])) {
+                // return this price
+                return $scale['price'];
+            }
+        }
+
+        // default is lowest price
+        for ($i = 5; $i >= 1; $i--) {
+            // get current scale
+            $scale = $this->shippingCosts['G'][$i];
+
+            // ignore invalid
+            if ((float) $scale['price'] == 0) {
+                // next
+                continue;
+            }
+
+            // return cheapest price
+            return $scale['price'];
+        }
+
+        // default free
+        return 0.0;
     }
 }

@@ -30,6 +30,10 @@
  * 1.1.2
  * - fixed free shipping for hwg-uwg constellation
  *
+ * 1.1.3
+ * - changed article number as highest priority for trends truck articles
+ * - changed lowest price as default for trends truck articles
+ *
  * @package   OstArticleShippingCosts
  *
  * @author    Tim Windelschmidt <tim.windelschmidt@ostermann.de>

@@ -188,12 +188,18 @@ abstract class Adapter
             $matchHwg = (string) $split[0];
             $matchUwg = (string) (isset($split[1])) ? $split[1] : '';
 
+            // valid?!
+            if (empty($matchHwg)) {
+                // ignore
+                continue;
+            }
+
             // is this a negation?
             if (substr($matchHwg, 0, 1) === "!") {
                 // ignore it
                 continue;
             }
-            
+
             // we definitly need same hwg
             if ($matchHwg === $hwg) {
                 // no need for uwg?!

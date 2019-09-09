@@ -65,6 +65,7 @@ class ShippingCostsCommand extends ShopwareCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        // get every article
         $query = '
             SELECT id
             FROM s_articles_details
@@ -72,28 +73,37 @@ class ShippingCostsCommand extends ShopwareCommand
         ';
         $ids = Shopware()->Db()->fetchAll($query);
 
+        // count it
         $total = count($ids);
 
+        // set the progress bar
         $progressBar = new ProgressBar($output, $total);
         $progressBar->start();
 
+        // loop every article
         foreach ($ids as $arr) {
-            $id = $arr['id'];
-
             /** @var Detail $articleDetail */
-            $articleDetail = Shopware()->Models()->find(Detail::class, $id);
+            $articleDetail = Shopware()->Models()->find(Detail::class, $arr['id']);
 
+            // get the attributes
             $attributes = $articleDetail->getAttribute();
 
+            // get the shipping costs
+            $costs = $this->articleShippingCostCalculator->getShippingCosts($articleDetail);
+
+            // set them
             $attributes->fromArray([
-                $this->configuration['attributeShippingCosts'] => $this->articleShippingCostCalculator->getShippingCosts($articleDetail)
+                $this->configuration['attributeShippingCosts'] => $costs
             ]);
 
+            // save the attributes
             Shopware()->Models()->flush($attributes);
 
+            // advance the progress bar
             $progressBar->advance();
         }
 
+        // and finish
         $progressBar->finish();
         $output->writeln('');
     }
