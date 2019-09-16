@@ -38,6 +38,10 @@
  * - fixed free shipping articles with default shopware free-shipping flag
  * - fixed faulty string match for article numbers and names
  *
+ * 1.1.5
+ * - fixed check for free-shipping for invalid articles
+ * - changed order of reading articles to be more predictive
+ *
  * @package   OstArticleShippingCosts
  *
  * @author    Tim Windelschmidt <tim.windelschmidt@ostermann.de>

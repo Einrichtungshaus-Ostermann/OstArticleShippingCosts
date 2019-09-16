@@ -69,7 +69,7 @@ class ShippingCostsCommand extends ShopwareCommand
         $query = '
             SELECT id
             FROM s_articles_details
-            ORDER BY ordernumber ASC
+            ORDER BY id ASC
         ';
         $ids = Shopware()->Db()->fetchAll($query);
 
@@ -101,6 +101,10 @@ class ShippingCostsCommand extends ShopwareCommand
 
             // advance the progress bar
             $progressBar->advance();
+
+            // clear memory
+            unset($articleDetail);
+            unset($attributes);
         }
 
         // and finish
