@@ -42,6 +42,9 @@
  * - fixed check for free-shipping for invalid articles
  * - changed order of reading articles to be more predictive
  *
+ * 1.1.6
+ * - fixed check for free-shipping for invalid articles
+ *
  * @package   OstArticleShippingCosts
  *
  * @author    Tim Windelschmidt <tim.windelschmidt@ostermann.de>
